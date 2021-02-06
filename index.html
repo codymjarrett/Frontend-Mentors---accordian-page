@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- displays site properly based on user's device -->
+
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png"
+		/>
+
+		<title>Frontend Mentor | FAQ Accordion Card</title>
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+			type="text/css"
+		/>
+		<link rel="stylesheet" href="./reset.css" type="text/css" />
+		<link rel="stylesheet" href="styles.css" type="text/css" />
+	</head>
+	<body>
+		<div class="main">
+			<div class="image">
+				<div class="image-container">
+					<img
+						src="./images/illustration-woman-online-mobile.svg"
+						alt=""
+						class="image-top mobile"
+					/>
+					<img
+						src="./images/illustration-woman-online-desktop.svg"
+						alt=""
+						class="image-top desktop"
+					/>
+					<img
+						src="./images/bg-pattern-mobile.svg"
+						alt=""
+						class="image-bottom mobile"
+					/>
+					<img
+						src="./images/bg-pattern-desktop.svg"
+						alt=""
+						class="image-bottom desktop"
+					/>
+					<img
+						src="./images/illustration-box-desktop.svg"
+						alt=""
+						class="image-side desktop"
+					/>
+				</div>
+			</div>
+			<div class="contents">
+				<div class="content">
+					<h2 class="heading">FAQ</h2>
+					<ul class="group">
+						<li class="item">
+							<button class="button" aria-expanded="false">
+								<div class="item-wrapper">
+									<h3 class="item-headings">
+										How many team members can I invite?
+									</h3>
+									<div class="item-content">
+										You can invite up to 2 additional users on the Free plan.
+										There is no limit on team members for the Premium plan.
+									</div>
+								</div>
+								<div class="button-icon">
+									<img
+										src="./images/icon-arrow-down.svg"
+										alt=""
+										class="arrow"
+									/>
+								</div>
+							</button>
+						</li>
+						<li class="item">
+							<button class="button" aria-expanded="false">
+								<div class="item-wrapper">
+									<h3 class="item-headings">
+										What is the maximum file upload size?
+									</h3>
+									<div class="item-content">
+										No more than 2GB. All files in your account must fit your
+										allotted storage space.
+									</div>
+								</div>
+								<div class="button-icon">
+									<img
+										src="./images/icon-arrow-down.svg"
+										alt=""
+										class="arrow"
+									/>
+								</div>
+							</button>
+						</li>
+						<li class="item">
+							<button class="button" aria-expanded="false">
+								<div class="item-wrapper">
+									<h3 class="item-headings">How do I reset my password?</h3>
+									<div class="item-content">
+										Click “Forgot password” from the login page or “Change
+										password” from your profile page. A reset link will be
+										emailed to you.
+									</div>
+								</div>
+								<div class="button-icon">
+									<img
+										src="./images/icon-arrow-down.svg"
+										alt=""
+										class="arrow"
+									/>
+								</div>
+							</button>
+						</li>
+						<li class="item">
+							<button class="button" aria-expanded="false">
+								<div class="item-wrapper">
+									<h3 class="item-headings">Can I cancel my subscription?</h3>
+									<div class="item-content">
+										Yes! Send us a message and we’ll process your request no
+										questions asked.
+									</div>
+								</div>
+								<div class="button-icon">
+									<img
+										src="./images/icon-arrow-down.svg"
+										alt=""
+										class="arrow"
+									/>
+								</div>
+							</button>
+						</li>
+						<li class="item">
+							<button class="button" aria-expanded="false">
+								<div class="item-wrapper">
+									<h3 class="item-headings">
+										Do you provide additional support?
+									</h3>
+									<div class="item-content">
+										Chat and email support is available 24/7. Phone lines are
+										open during normal business hours.
+									</div>
+								</div>
+								<div class="button-icon">
+									<img
+										src="./images/icon-arrow-down.svg"
+										alt=""
+										class="arrow"
+									/>
+								</div>
+							</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script>
+			const allItems = Array.from(document.querySelectorAll('.item'))
+			allItems.forEach((item, index) =>
+				item.addEventListener('click', function (event) {
+					// use index to only collapse one
+					const clickedItem = item
+					const clickedItemButton = clickedItem.querySelector('.button')
+					const buttonIsExpanded = clickedItemButton.getAttribute('aria-expanded')
+
+					clickedItem.classList.toggle('expanded')
+
+					if (buttonIsExpanded === 'true') {
+						clickedItemButton.setAttribute('aria-expanded', false)
+					} else {
+						clickedItemButton.setAttribute('aria-expanded', true)
+					}
+					
+					const otherItems = 	allItems.filter(item => item !== clickedItem)					
+					otherItems.map(item => {
+						const button = item.querySelector('.button')
+						if(item.classList.contains('expanded')){
+							item.classList.remove('expanded')
+							button.setAttribute('aria-expanded',false)
+						}
+					})
+				
+				})
+			)
+		</script>
+	</body>
+</html>
