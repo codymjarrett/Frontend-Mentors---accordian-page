@@ -162,7 +162,6 @@
 			const allItems = Array.from(document.querySelectorAll('.item'))
 			allItems.forEach((item, index) =>
 				item.addEventListener('click', function (event) {
-					// use index to only collapse one
 					const clickedItem = item
 					const clickedItemButton = clickedItem.querySelector('.button')
 					const buttonIsExpanded = clickedItemButton.getAttribute('aria-expanded')
@@ -174,7 +173,7 @@
 					} else {
 						clickedItemButton.setAttribute('aria-expanded', true)
 					}
-					
+
 					const otherItems = 	allItems.filter(item => item !== clickedItem)					
 					otherItems.map(item => {
 						const button = item.querySelector('.button')

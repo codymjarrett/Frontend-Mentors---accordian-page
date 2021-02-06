@@ -65,11 +65,7 @@ h3:hover {
 }
 
 .contents {
-	/* position: absolute;
-	bottom: 0;
-    width: 100%; */
 	margin-top: 5rem;
-	/* padding: 1.3rem; */
 	margin: 0 1.3rem;
 }
 
@@ -150,14 +146,13 @@ button[aria-expanded='true'] .button-icon .arrow {
 	height: 10px;
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1200px) {
 	h2 {
 		text-align: left;
 	}
 	.main {
 		display: flex;
-		width: 1440px;
-		/* padding: 0 3rem; */
+		min-width: 1150px;
 	}
 	.heading  {
 		margin-top: 0px;
@@ -169,23 +164,17 @@ button[aria-expanded='true'] .button-icon .arrow {
 		overflow: hidden;
 	}
 
-	.image-container {
-		/* overflow: hidden; */
-	}
 	.image-top.desktop {
 		display: block;
 		position: relative;
-		/* width: 38rem; */
 		left: -5rem;
 		top: 2rem;
 	}
 	.image-bottom.desktop {
 		display: block;
 		position: absolute;
-		/* width: 62rem; */
 		left: -32rem;
 		top: -16rem;
-		/* height: 62rem; */
 	}
 
 	.image-side.desktop {
